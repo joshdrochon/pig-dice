@@ -14,13 +14,21 @@ $(document).ready(function(){
     event.preventDefault();
     var currentroll = dieroll();
     if (currentroll === 1) {
+      if(player1turn) {
+        console.log("You rolled a 1 --- Switch to Player 2!");
+      } else {
+        console.log("You rolled a 1 --- Switch to Player 1!");
+      };
       player1turn = ! player1turn;
       unheldscore = 0;
-      console.log('You rolled a 1, switch players!');
     } else {
       unheldscore += currentroll;
-    }
-    console.log(player1turn, unheldscore, player1score, player2score);
+      if(player1turn) {
+        console.log("Score is ",player1score," to ",player2score," --- Player 1 so far this turn has: ", unheldscore);
+      } else {
+        console.log("Score is ",player1score," to ",player2score," --- Player 2 so far this turn has: ", unheldscore);
+      };
+    };
   });
 
   $("button#hold").click(function(event) {
@@ -40,6 +48,10 @@ $(document).ready(function(){
       }
       player1turn = true;
     };
-    console.log(player1turn, unheldscore, player1score, player2score);
+    if(player1turn) {
+      console.log("Score is ",player1score," to ",player2score," --- Switch to Player 1!");
+    } else {
+      console.log("Score is ",player1score," to ",player2score," --- Switch to Player 2!");
+    };
   });
 });

@@ -1,0 +1,20 @@
+*{
+  border: 1px solid red;
+}
+
+.canvas{
+  fill:lightgreen;
+  stroke-width:3;
+  stroke:lightgray;
+}
+
+.score1{
+  fill:lightblue;
+  float:left;
+}
+
+.score2{
+  fill:lightblue;
+  float:right;
+  margin-left: 100px;
+}
